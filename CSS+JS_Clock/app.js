@@ -8,7 +8,7 @@ var myClock = (function(){
       const seconds = now.getSeconds()
       const secondsDegrees = ((seconds / 60) * 360)+90
       if (secondsDegrees===300){
-        secondHand.style.transition= 0 
+        secondHand.style.transition= 0
       }
       secondHand.style.transform = `rotate(${secondsDegrees}deg)`
       const mins = now.getMinutes()
@@ -20,6 +20,10 @@ var myClock = (function(){
       console.log(seconds)
       console.log(mins)
       console.log(hour)
+      if (secondsDegrees === 90) secondHand.style.transition = 'all 0s';
+      else secondHand.style.transition = 'all 0.05s';
+      if (minsDegrees === 90) minHand.style.transition = 'all 0s';
+      else minHand.style.transition = 'all 0.1s';
     }
   setInterval(setDate,1000)
   }
